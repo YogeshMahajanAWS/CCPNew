@@ -148,10 +148,12 @@ const GetAgentInfo = () => {
             // Access the agentOnline value from the response
             const agentOnlineValue = data.agentOnline;
             const contactsWaitingValue = data.contactsInQueue;
+            const agentsOnCallValue = data.agentsOnCall;
 
             // Display the value on the web page
             document.getElementById("agentOnline").textContent = agentOnlineValue;
             document.getElementById("contactsWaiting").textContent = contactsWaitingValue;
+            document.getElementById("agentsOnCall").textContent = agentsOnCallValue;
         } catch (error) {
             console.log(error);
         }
