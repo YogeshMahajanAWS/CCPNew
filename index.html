@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="icon" type="image/png" sizes="16x16" href="fav.png">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css">
+  <script type="text/javascript" src="./lib/jquery-2.1.4.min.js"></script>
+  <script src="./lib/connect-streams.js"></script>
+  <title>MyNikqik</title>
+</head>
+
+<body>
+  <div class="logo">
+    <img src="./nikqik.png" alt="" style="max-width: 180px; height: auto; top: 0px;">
+  </div>
+  <div class="ccp-body">
+    <div id="containerDiv">
+
+    </div>
+
+    <div class="info-table" style="position: relative;top: 18px;">
+
+      <table>
+        <tr>
+          <td class="center-text" colspan="2">
+            <p style="padding: 1px; font-size: 17px;"><B>Customer Details</B></p>
+          </td>
+        </tr>
+        <tr>
+          <td>Customer Name</td>
+          <td id="callerName"></td>
+        </tr>
+        <tr>
+          <td>Phone Number</td>
+          <td id="phoneNumber"></td>
+        </tr>
+        <tr>
+          <td>Contact ID</td>
+          <td id="contactID"></td>
+        </tr>
+        <tr>
+          <td>Reason for Call</td>
+          <td id="callerIssue"></td>
+        </tr>
+        <tr>
+          <td>Voice ID Registered</td>
+          <td id="voiceID"></td>
+        </tr>
+        <tr>
+          <td>Voice Authenticated</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="center-text" colspan="2">
+            <p style="font-size: 17px; "><B>Agent Information</B></p>
+          </td>
+        </tr>
+        <tr>
+          <td>Agent Name</td>
+          <td id="agentName"></td>
+        </tr>
+        <tr>
+          <td>Routing Profile</td>
+          <td id="routingProfile"></td>
+        </tr>
+        <tr>
+          <td>Agent Queue</td>
+          <td id="agentQueue"></td>
+        </tr>
+        <tr>
+          <td>Toatal Agents Online </td>
+          <td id="agentOnline"></td>
+        </tr>
+        <tr>
+          <td>Contacts waiting in Queue</span></td>
+          <td id="contactsWaiting"></td>
+        </tr>
+      </table>
+
+    </div>
+
+    <div class="floating-box">
+
+      <h4 style="padding: 50px; font-size: 17px; margin: 0;">Agent to Agent CCP</h4>
+
+      <div class="agentCCP">
+        <div>
+          <p>Quick Connects</p>
+        </div>
+        <form name="agentdropdown" id="agents">
+          <legend style="margin-bottom: 10px;">Agent Calling</legend>
+          <div class="agentDropdown">
+            <table class="table">
+              <tbody id="attributes-table-body">
+                <tr class="attributes-table-row">
+                  <td>
+                    <label for="agents" class="agentList">Select Agent</label>
+                    <select id="agentCalling" name="agentCalling" style="display: inline; ">
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br>
+            <div>
+              <input type=button id="placeCall" class="placeCall" value="Call"></input>
+            </div>
+
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+
+  <br>
+  <br>
+  <div class="line-container">
+    <button class="floating-button">Recording Status</button>
+  </div>
+  <br>
+  <div class="recording-controls">
+    <button id="button1" onclick="callAPI(1)">Start</button>
+    <button id="button2" onclick="callAPI(2)">Stop</button>
+    <button id="button3" onclick="callAPI(3)">Pause</button>
+    <button id="button4" onclick="callAPI(4)">Resume</button>
+  </div>
+  <script>
+    function toggleButton(buttonId) {
+      var button = document.getElementById("button" + buttonId);
+
+      // Remove the "clicked" class from all buttons
+      var buttons = document.getElementsByClassName("recording-controls")[0].getElementsByTagName("button");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("clicked");
+      }
+
+      // Add the "clicked" class to the clicked button
+      button.classList.add("clicked");
+    }
+  </script>
+  <script src="./scripts/api.js"></script>
+  <script type="text/javascript" src="./scripts/agentcall.js">  </script>
+
+</body>
+
+</html>
+
+</body>
+
+</html>
